@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2024-04-11T12:47:47.6133285Z;True|2024-04-11T15:46:04.8375799+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=SQL6031.site4now.net%3bInitial Catalog=db_aa6815_dbtest%3bUser Id=db_aa6815_dbtest_admin%3bPassword=Admin123%40</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="OverTaskDbConnection">
+      <Value>Data Source=SQL6031.site4now.net%3bInitial Catalog=db_aa6815_dbtest%3bUser Id=db_aa6815_dbtest_admin%3bPassword=Admin123%40</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="OverTask.Data.ApplicationDbContext">
+      <Value>Data Source=SQL6031.site4now.net%3bInitial Catalog=db_aa6815_dbtest%3bUser Id=db_aa6815_dbtest_admin%3bPassword=Admin123%40</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
