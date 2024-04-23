@@ -778,3 +778,120 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240416232933_addded owner foreigh key'
+)
+BEGIN
+    CREATE INDEX [IX_Groups_OwnerID] ON [Groups] ([OwnerID]);
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240416232933_addded owner foreigh key'
+)
+BEGIN
+    ALTER TABLE [Groups] ADD CONSTRAINT [FK_Groups_AspNetUsers_OwnerID] FOREIGN KEY ([OwnerID]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240416232933_addded owner foreigh key'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240416232933_addded owner foreigh key', N'8.0.3');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240416233259_addded owner foreigh key2'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240416233259_addded owner foreigh key2', N'8.0.3');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    ALTER TABLE [GroupEvents] DROP CONSTRAINT [FK_GroupEvents_Groups_GroupdId];
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    DROP INDEX [IX_GroupEvents_GroupdId] ON [GroupEvents];
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    DECLARE @var7 sysname;
+    SELECT @var7 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[GroupEvents]') AND [c].[name] = N'GroupdId');
+    IF @var7 IS NOT NULL EXEC(N'ALTER TABLE [GroupEvents] DROP CONSTRAINT [' + @var7 + '];');
+    ALTER TABLE [GroupEvents] DROP COLUMN [GroupdId];
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    CREATE INDEX [IX_GroupEvents_GroupId] ON [GroupEvents] ([GroupId]);
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    ALTER TABLE [GroupEvents] ADD CONSTRAINT [FK_GroupEvents_Groups_GroupId] FOREIGN KEY ([GroupId]) REFERENCES [Groups] ([Id]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240417000847_minor spelling mistake'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240417000847_minor spelling mistake', N'8.0.3');
+END;
+GO
+
+COMMIT;
+GO
+

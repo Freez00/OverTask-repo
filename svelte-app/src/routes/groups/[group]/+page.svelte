@@ -101,8 +101,8 @@
     </div>
     <script lang='ts'>
 
-      //const backendURL = "https://overtaskapi.me";
-      const backendURL = 'https://localhost:7221';
+      const backendURL = "https://overtaskapi.me";
+      //const backendURL = 'https://localhost:7221';
 
 const calendar = document.querySelector(".calendar"),
 date = document.querySelector(".date"),

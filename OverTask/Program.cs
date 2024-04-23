@@ -24,8 +24,8 @@ internal class Program
 		var jwtIssuer = builder.Configuration.GetValue<string>("JwtIssuer");
 
 		// Add services to the container.
-		var connectionString = builder.Configuration.GetConnectionString("OverTaskDbConnection") ?? throw new InvalidOperationException("Connection string 'OverTaskDbConnection' not found.");
-		//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+		//var connectionString = builder.Configuration.GetConnectionString("OverTaskDbConnection") ?? throw new InvalidOperationException("Connection string 'OverTaskDbConnection' not found.");
+		var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 		builder.Services.AddDbContext<ApplicationDbContext>(options =>
 			options.UseSqlServer(connectionString));

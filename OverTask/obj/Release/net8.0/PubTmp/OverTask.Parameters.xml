@@ -3,7 +3,4 @@
   <parameter name="IIS Web Application Name" description="" value="freeez-001-site1" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Freez\\Desktop\\Diplomna\\OverTask\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
   </parameter>
-  <parameter name="OverTask.Data.ApplicationDbContext" description="" value="Data Source=SQL6031.site4now.net;Initial Catalog=db_aa6815_dbtest;User Id=db_aa6815_dbtest_admin;Password=Admin123@" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Freez\\Desktop\\Diplomna\\OverTask\\obj\\Release\\net8\.0\\PubTmp\\EFSQLScripts\\OverTask\.Data\.ApplicationDbContext\.sql$" />
-  </parameter>
 </parameters>
